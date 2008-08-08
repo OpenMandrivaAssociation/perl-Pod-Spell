@@ -1,6 +1,6 @@
 %define module   Pod-Spell
 %define version    1.01
-%define release    %mkrel 1
+%define release    %mkrel 2
 
 Name:       perl-%{module}
 Version:    %{version}
