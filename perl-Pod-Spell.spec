@@ -1,20 +1,21 @@
-%define module   Pod-Spell
-%define version    1.01
-%define release    %mkrel 2
+%define upstream_name    Pod-Spell
+%define upstream_version 1.01
 
-Name:       perl-%{module}
-Version:    %{version}
-Release:    %{release}
-License:    GPL or Artistic
-Group:      Development/Perl
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:    A formatter for spellchecking Pod
-Url:        http://search.cpan.org/dist/%{module}
-Source:     http://www.cpan.org/modules/by-module/Pod/%{module}-%{version}.tar.gz
+License:    GPL+ or Artistic
+Group:      Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/Pod/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildRequires: perl(Pod::Escapes)
 BuildRequires: perl(Pod::Parser)
 BuildRequires: perl(Text::Wrap)
 BuildArch: noarch
-BuildRoot:  %{_tmppath}/%{name}-%{version}
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Pod::Spell is a Pod formatter whose output is good for spellchecking.
@@ -38,7 +39,7 @@ and can be supplemented (on a per-document basis) by having '"=for
 stopwords"' / '"=for :stopwords"' region(s) in a document.
 
 %prep
-%setup -q -n %{module}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -60,4 +61,3 @@ rm -rf %{buildroot}
 %{_mandir}/man3/*
 %{perl_vendorlib}/Pod
 %{_bindir}/podspell
-
