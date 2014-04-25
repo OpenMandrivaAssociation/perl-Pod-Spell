@@ -12,6 +12,8 @@ Url:		http://search.cpan.org/dist/%{modname}
 Source0:	http://www.cpan.org/modules/by-module/Pod/%{modname}-%{modver}.tar.gz
 BuildArch:	noarch
 BuildRequires:	perl(Pod::Escapes)
+BuildRequires: perl(Test::Deep)
+BuildRequires: perl(Lingua::EN::Inflect)
 BuildRequires: perl(File::ShareDir::Install)
 BuildRequires:	perl(Pod::Parser)
 BuildRequires:	perl(Text::Wrap)
