@@ -1,10 +1,11 @@
 %define modname	Pod-Spell
-%define modver	1.01
+%define modver 1.15
 
 Summary:	A formatter for spellchecking Pod
+
 Name:		perl-%{modname}
 Version:	%perl_convert_version %{modver}
-Release:	10
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
@@ -54,4 +55,5 @@ make test
 %{_bindir}/podspell
 %{perl_vendorlib}/Pod
 %{_mandir}/man3/*
+
 
