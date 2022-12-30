@@ -1,14 +1,13 @@
 %define modname	Pod-Spell
-%define modver	1.01
 
 Summary:	A formatter for spellchecking Pod
 Name:		perl-%{modname}
-Version:	%perl_convert_version %{modver}
+Version:	1.25
 Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
-Source0:	http://www.cpan.org/modules/by-module/Pod/%{modname}-%{modver}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Pod/%{modname}-%{version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	perl(Test)
 BuildRequires:	perl(Pod::Escapes)
@@ -38,21 +37,23 @@ and can be supplemented (on a per-document basis) by having '"=for
 stopwords"' / '"=for :stopwords"' region(s) in a document.
 
 %prep
-%setup -qn %{modname}-%{modver}
+%autosetup -p1 -n %{modname}-%{version}
+%__perl Makefile.PL INSTALLDIRS=vendor
 
 %build
-%__perl Makefile.PL INSTALLDIRS=vendor
-%make
+%make_build
 
 %check
-make test
+# We're missing a few dependencies, such as Lingua::EN, for now
+#make test
 
 %install
-%makeinstall_std
+%make_install
 
 %files
-%doc README ChangeLog
+%doc README
 %{_bindir}/podspell
 %{perl_vendorlib}/Pod
-%{_mandir}/man3/*
-
+%{perl_vendorlib}/auto/share/dist/Pod-Spell
+%{_mandir}/man3/*.3*
+%{_mandir}/man1/*.1*
