@@ -13,6 +13,7 @@ BuildRequires:	perl(Test)
 BuildRequires:	perl(Pod::Escapes)
 BuildRequires:	perl(Pod::Parser)
 BuildRequires:	perl(Text::Wrap)
+BuildRequires:	perl(File::ShareDir::Install)
 BuildRequires:	perl-devel
 
 %description
