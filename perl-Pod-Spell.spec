@@ -2,8 +2,8 @@
 
 Summary:	A formatter for spellchecking Pod
 Name:		perl-%{modname}
-Version:	1.25
-Release:	2
+Version:	1.26
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
