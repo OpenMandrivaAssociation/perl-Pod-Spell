@@ -2,7 +2,7 @@
 
 Summary:	A formatter for spellchecking Pod
 Name:		perl-%{modname}
-Version:	1.26
+Version:	1.27
 Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
